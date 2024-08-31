@@ -7,7 +7,7 @@ import MainContext from '../Context/Maincontext'
 
 export default function Login() {
     const main = useContext(MainContext)
-    const { FetchUser } = main;
+    const { FetchUser, ViewCart, ViewWishlist } = main;
     const navigate = useNavigate()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -24,6 +24,8 @@ export default function Login() {
                 if (res.data.success === 'true') {
                     localStorage.setItem('token', res.data.token)
                     FetchUser()
+                    ViewWishlist()
+                    ViewCart()
                     navigate('/')
                 }
                 else {
