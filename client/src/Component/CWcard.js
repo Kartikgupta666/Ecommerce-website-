@@ -36,7 +36,7 @@ export default function CWcard(props) {
                             <input type="number" className='text-center ' value={count} id="" disabled style={{ "width": "45px" }} />
                             <button className='border border-1 rounded-circle fs-5' onClick={increase}><i className="fa fa-plus-circle" aria-hidden="true"></i></button>
                             {/* <button style={{ "border": "transparent", "backgroundColor": "transparent" }}>{"Save for later".toUpperCase()}</button> */}
-                            <button style={{ "border": "transparent", "backgroundColor": "transparent" }} onClick={()=>{location.pathname === "/cart" ? removeCart(props.id) : removeWishlist(props.id)}}>{"Remove".toUpperCase()}</button>
+                            <button className={`${props.display}`} style={{ "border": "transparent", "backgroundColor": "transparent" }} onClick={()=>{location.pathname === "/cart" ? removeCart(props.id): removeWishlist(props.id)}}>{"Remove".toUpperCase()}</button>
                         </div>
 
                     </div>

@@ -2,9 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import MainContext from '../Context/Maincontext'
 import axios from 'axios'
 import Alert from '../Component/Alert'
+import {useNavigate} from 'react-router-dom'
+// import Buying_page from './Buying_page'
 
 export default function Itempage() {
     const main = useContext(MainContext)
+    const navigator = useNavigate()
     const { itembyid, findbyid, AddCart, Wishlist } = main
     const [icon, Seticon] = useState('regular')
     const [color, Setcolor] = useState('dark')
@@ -87,6 +90,9 @@ export default function Itempage() {
         }
     }
 
+    const Buying_page = () => {
+        navigator("/buying")
+    }
 
     return (
         <>
@@ -115,7 +121,7 @@ export default function Itempage() {
                         <p className='fs-6'>{itembyid.description}</p>
                         <div className="d-flex gap-3 justify-content-center mt-5">
                             <button className='btn btn-warning fs-4 py-3 px-4' onClick={addCart}>Add to Cart</button>
-                            <button className='btn btn-success fs-4 py-3 px-4' >Buy Now</button>
+                            <button className='btn btn-success fs-4 py-3 px-4' onClick={Buying_page} >Buy Now</button>
                         </div>
                     </div>
                 </div>
